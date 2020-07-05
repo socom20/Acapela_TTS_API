@@ -6,7 +6,7 @@ https://mov.acapela-group.com/
 
 ## Installation
 
-Just install dependences:
+Just install dependencies:
 ```sh
 $ pip3 install requests
 ```
