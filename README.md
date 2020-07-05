@@ -11,16 +11,30 @@ Just install dependences:
 $ pip3 install requests
 ```
 
+## Basic Usage Example
 
-## Usage
-
-Simply clone the repository and import the Acapela API class:
-
-## Example
+Simply clone the repository and import the Acapela API class.
 
 ```python3
+# Create an instance
 acapela = Acapela_API(verbose=True)
-acapela.login(credentials_path='./acapela_credentials.json')
-acapela.speak_and_download_wav('Hello World.', convert_to_ogg=False)
+
+# Logging using a credential file or an username and password pair
+acapela.login(
+    username=None,
+    password=None,
+    credentials_path='./acapela_credentials.json')
+
+# Create the voice file and download the wav
+acapela.speak_and_download_wav(
+    text='Hello World.',
+    listen_speed=180,
+    listen_shaping=100,
+    listen_voice='Spanish - dnn-DavidPalacios_sps'
+    convert_to_ogg=False,
+    when_ogg_rm_wav_file=True,
+    use_cache=True)
+
+# Listen to the voice
 acapela.play()
 ```
