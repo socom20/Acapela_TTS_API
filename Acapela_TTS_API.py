@@ -231,7 +231,7 @@ class Acapela_API():
         if not self._is_logged:
             raise Exception(' - ERROR, speak_and_download_wav: You must do the loggin step first')
 
-        wav_name = self.make_wav_name(text, listen_speed=180, listen_shaping=100, listen_voice='Spanish - dnn-DavidPalacios_sps')
+        wav_name = self.make_wav_name(text, listen_speed=180, listen_shaping=100, listen_voice=listen_voice)
         wav_path = os.path.join(self.download_dir, wav_name)
         
         if use_cache and os.path.exists(wav_path):
@@ -291,10 +291,13 @@ class Acapela_API():
 
 
 if __name__ == '__main__':
-    
+
+##    listen_voice = 'Spanish - dnn-DavidPalacios_sps'
+    listen_voice = 'Spanish (Spain) - dnn-DavidPalacios5802_sps'
+
     acapela = Acapela_API(verbose=True)
-    acapela.login(credentials_path='./acapela_credentials.json')
-    acapela.speak_and_download_wav('Esta es una API python para acapela.', convert_to_ogg=False)
+    acapela.login(credentials_path='./acapela_credentials2.json')
+    acapela.speak_and_download_wav('Esta es una API python para acapela.', convert_to_ogg=False, listen_voice=listen_voice)
     acapela.play()
     
 
